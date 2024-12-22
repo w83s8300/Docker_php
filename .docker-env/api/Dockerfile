@@ -38,8 +38,6 @@ COPY ../../api .
 RUN mkdir -p /var/www/storage \
     && chown -R www-data:www-data /var/www \
     && chmod -R 755 /var/www/storage
-RUN chown -R www-data:www-data /var/www/html/storage
-RUN chmod -R 775 /var/www/html/storage
 # Expose port 9000 and start PHP-FPM server
 EXPOSE 9000
 CMD ["php-fpm"]
