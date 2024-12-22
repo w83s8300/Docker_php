@@ -1,0 +1,26 @@
+進入容器並檢查目錄的權限，確保 Laravel 框架的 storage 和 cache 目錄有正確的權限。
+docker exec -it your-container-name bash
+cd /var/www/html/storage
+chmod -R 775 framework
+chown -R www-data:www-data framework
+清理 Laravel 的快取
+php artisan config:clear
+php artisan cache:clear
+php artisan view:clear
+php artisan optimize:clear
+重啟 Docker 容器
+docker-compose down
+docker-compose up -d
+
+啟動所有服務
+    docker-compose up -d --build
+查看容器日誌
+docker-compose logs -f [service_name]
+進入容器終端
+docker-compose exec [service_name] bash
+重新啟動服務
+docker-compose restart [service_name]
+停止並移除容器
+docker-compose down
+
+
